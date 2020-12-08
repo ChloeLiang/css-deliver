@@ -1,0 +1,273 @@
+:root {
+  --color-primary: #ffb901;
+  --color-grey: #dcddde;
+  --color-light-grey: #f5f6f7;
+  --color-dark: #333;
+  --color-dark-yellow: #585320;
+  --max-width: 900px;
+  --header-height: 7rem;
+}
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-dark);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  background-color: var(--color-grey);
+  height: var(--header-height);
+  position: relative;
+}
+
+.header__logo-box {
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header__logo {
+  height: 5rem;
+  margin-right: 1rem;
+}
+
+.header__logo-text {
+  font-size: 2rem;
+}
+
+.header__burger-box {
+  float: right;
+  height: var(--header-height);
+  display: none;
+  align-items: center;
+}
+
+.burger-icon {
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  background-color: var(--color-dark);
+  position: relative;
+}
+
+.burger-icon:before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  background-color: var(--color-dark);
+  position: absolute;
+  top: -9px;
+}
+
+.burger-icon:after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  background-color: var(--color-dark);
+  position: absolute;
+  top: 9px;
+}
+
+.nav {
+  float: right;
+  height: var(--header-height);
+  width: 55%;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav__link:hover,
+.nav__link:focus {
+  color: var(--color-primary);
+}
+
+.section {
+  padding: 4rem 1.5rem;
+}
+
+.section-about {
+  background-color: var(--color-light-grey);
+}
+
+.container-about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-about__left {
+  flex: 0 0 40%;
+}
+
+.container-about__right {
+  flex: 0 0 40%;
+}
+
+.container-about__paragraph {
+  font-size: 1.7rem;
+  line-height: 1.4;
+  margin: 2rem 0;
+}
+
+.container-about__image {
+  height: 20rem;
+}
+
+.heading-primary {
+  font-size: 3.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--color-dark-yellow);
+  font-weight: 600;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+}
+
+.btn--secondary {
+  border: 2px solid var(--color-primary);
+  transition: all 0.2s;
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary);
+}
+
+.section-feature {
+  text-align: center;
+}
+
+.container-feature {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.feature-box {
+  flex: 0 0 30%;
+}
+
+.feature-box__img {
+  height: 9rem;
+}
+
+.feature-box__title {
+  margin: 2rem 0;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.feature-box__description {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 47em) {
+  .container-about__left {
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (max-width: 39em) {
+  .container-about__left {
+    flex: 0 0 60%;
+  }
+}
+
+@media screen and (max-width: 33em) {
+  .header__burger-box {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    width: 100%;
+    background: var(--color-grey);
+    top: 100%;
+    left: 0;
+    height: auto;
+    transition: all 0.3s;
+    pointer-events: none;
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+
+  .nav__list {
+    display: block;
+  }
+
+  .nav__item {
+    display: block;
+    text-align: center;
+  }
+
+  .nav__link {
+    padding: 2rem;
+    display: block;
+  }
+
+  .header__burger-box:focus + .nav {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .container-about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .container-about__left {
+    flex: 0 0 100%;
+    order: 2;
+  }
+
+  .container-about__right {
+    flex: 0 0 100%;
+    order: 1;
+  }
+
+  .feature-box {
+    flex: 0 0 100%;
+  }
+
+  .feature-box:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
